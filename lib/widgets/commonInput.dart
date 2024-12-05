@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_workout_tracker_app/design/themes.dart';
+import 'package:new_workout_tracker_app/design/design.dart';
 
 class CommonInput extends StatelessWidget{
   TextEditingController textController = TextEditingController();

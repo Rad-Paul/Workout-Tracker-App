@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import '../design/design.dart';
 
-class CommonEmphasizedButton extends StatelessWidget{
+class Backgroundbutton extends StatelessWidget{
 
   String text;
   double width;
@@ -12,13 +10,13 @@ class CommonEmphasizedButton extends StatelessWidget{
   Color background;
   VoidCallback? onPress;
 
-  CommonEmphasizedButton({
+  Backgroundbutton({
     super.key,
     this.text = 'PRESS',
     this.width = 80,
     this.height = 40,
-    this.style = const TextStyle(color: AppThemes.basicText),
-    this.background = AppThemes.emphasized,
+    this.style = const TextStyle(color: AppThemes.emphasized),
+    this.background = AppThemes.background,
     this.onPress, 
   });
 
@@ -28,9 +26,10 @@ class CommonEmphasizedButton extends StatelessWidget{
       width: width,
       height: height,
       child: FloatingActionButton(
+        elevation: 0,
         heroTag: text,
         backgroundColor: background,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero,),
         onPressed: onPress ?? (){
           print('No event set');
         },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_workout_tracker_app/design/themes.dart';
+import 'package:new_workout_tracker_app/design/design.dart';
 import 'package:new_workout_tracker_app/providers/userProvider.dart';
 import 'package:new_workout_tracker_app/screens/exercise/exercise_screen.dart';
 import 'package:new_workout_tracker_app/screens/history/history_screen.dart';
