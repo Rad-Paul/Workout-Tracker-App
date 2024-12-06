@@ -47,7 +47,17 @@ class NewWorkoutScreenBody extends StatelessWidget{
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Text('New Workout Template', style: AppTStyles.basicLarge,),
+                        child: Container(
+                          width: ScreenSize.width * 0.6,
+                          child: TextField(
+                            controller: vm.templateNameController,
+                            style: AppTStyles.basicLarge,
+                            decoration: InputDecoration(
+                              hintText: 'Template name...',
+                              hintStyle: AppTStyles.onBackgroundLarge,                   
+                            ),
+                          ),
+                        )
                       ),
                       IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, color: AppThemes.emphasized,))
                     ],
@@ -69,8 +79,9 @@ class NewWorkoutScreenBody extends StatelessWidget{
 
                   Container(
                     width: double.infinity,
-                    height: ScreenSize.height * 0.1,
+                    height: ScreenSize.height * 0.05,
                     child: FloatingActionButton(
+                      heroTag: 'ADD EXERCISE',
                       elevation: 0,
                       backgroundColor: AppThemes.background,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero,),
@@ -89,6 +100,9 @@ class NewWorkoutScreenBody extends StatelessWidget{
                       },
                       child: Text('ADD EXERCISE', style: AppTStyles.emphasizedMedium,),
                     ),
+                  ),
+                  Container(
+                    height: ScreenSize.height * 0.05,
                   )
                 ],
               ),
@@ -100,9 +114,12 @@ class NewWorkoutScreenBody extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    CommonEmphasizedButton(text:'CANCEL'),
+                    CommonEmphasizedButton(text:'CLEAR', onPress: vm.clearWorkout),
                     SizedBox(width: ScreenSize.width * 0.1,),
-                    CommonEmphasizedButton(text:'SAVE'),
+                    CommonEmphasizedButton(text:'SAVE', onPress: (){
+                      vm.saveWorkout();
+                      Navigator.of(context).pop();
+                    },),
                   ],
                 ),
               ),
