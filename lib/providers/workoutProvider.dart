@@ -1,5 +1,4 @@
-import '../models/exercise_model.dart';
-import '../models/workout_model.dart';
+import '../models/training_model.dart';
 
 class WorkoutProvider {
   List<Workout> completedWorkout = [];
@@ -21,36 +20,36 @@ class WorkoutProvider {
     Workout(
       name: 'Legs', 
       exercises:[
-        Exercise(name: 'Squat', sets:['12', '10', '8']),
-        Exercise(name: 'Leg Press', sets:['12', '10', '8']),
-        Exercise(name: 'Lunge', sets:['10', '10', '10']),
+        Exercise(name: 'Squat', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Leg Press', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Lunge', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
       ]
     ),
     Workout(
       name: 'Back and Biceps', 
       exercises:[
-        Exercise(name: 'Chin-Up', sets:['8', '8',]),
-        Exercise(name: 'Bicep Curl', sets:['15', '12', '10', '10']),
-        Exercise(name: 'Lat Pull-Down', sets:['12', '10', '8']),
-        Exercise(name: 'Hammer Curl', sets:['10', '10']),
+        Exercise(name: 'Chin-Up', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Bicep Curl', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Lat Pull-Down', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Hammer Curl', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
       ]
     ),
     Workout(
       name: 'Upper', 
       exercises:[
-        Exercise(name: 'Overhead Press', sets:['12', '10', '8']),
-        Exercise(name: 'Bench Press', sets:['12', '10', '8']),
-        Exercise(name: 'Lateral Raises', sets:['12', '12', '12']),
-        Exercise(name: 'Skull Crushers', sets:['12', '10', '8']),
-        Exercise(name: 'Reverse Curl', sets:['12', '12']),
+        Exercise(name: 'Overhead Press', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Bench Press', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Lateral Raises', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Skull Crushers', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
+        Exercise(name: 'Reverse Curl', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
       ]
     ),
     Workout(
       name: 'Strong 5x5', 
       exercises:[
-        Exercise(name: 'Squat', sets:['5', '5', '5', '5', '5']),
-        Exercise(name: 'Bench Press', sets:['5', '5', '5', '5', '5']),
-        Exercise(name: 'Bent Over Row', sets:['5', '5', '5', '5', '5']),
+        Exercise(name: 'Squat', sets:[Set(weight: '', reps: '5',), Set(weight: '', reps: '5',), Set(weight: '', reps: '5',),]),
+        Exercise(name: 'Bench Press', sets:[Set(weight: '', reps: '5',), Set(weight: '', reps: '5',), Set(weight: '', reps: '5',),]),
+        Exercise(name: 'Bent Over Row', sets:[Set(weight: '', reps: '5',), Set(weight: '', reps: '5',), Set(weight: '', reps: '5',),]),
       ]
     ),
   ];

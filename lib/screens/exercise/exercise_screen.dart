@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:new_workout_tracker_app/screens/exercise/exercise_view_model.dart';
 import 'package:new_workout_tracker_app/widgets/templateContainer.dart';
-import '../../models/workout_model.dart';
+import '../../models/training_model.dart';
 import '../new_workout/new_workout_screen.dart';
 import 'package:new_workout_tracker_app/design/design.dart';
 

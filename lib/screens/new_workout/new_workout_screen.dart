@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:new_workout_tracker_app/screens/exercise/exercise_view_model.dart';
+import 'package:new_workout_tracker_app/screens/new_workout/workout_view_model.dart';
+import 'package:new_workout_tracker_app/widgets/alertDialogBox.dart';
 import 'package:new_workout_tracker_app/widgets/backgroundButton.dart';
 import 'package:new_workout_tracker_app/widgets/commonEmphasizedButton.dart';
+import 'package:provider/provider.dart';
+import '../../widgets/exerciseContainer.dart';
 import '../../design/design.dart';
 
 class NewWorkoutScreen extends StatelessWidget{
 
-  
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => WorkoutViewModel(),
+      child: Scaffold(
+        backgroundColor: AppThemes.background,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: AppThemes.background,
+          foregroundColor: AppThemes.basicText,
+          leading: IconButton(onPressed: () { Navigator.of(context).pop(); }, icon: Icon(Icons.arrow_back)),
+        ),
+        body: NewWorkoutScreenBody(),
+      ),
+    );
+  }
+}
+
+
+class NewWorkoutScreenBody extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      backgroundColor: AppThemes.background,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppThemes.background,
-        foregroundColor: AppThemes.basicText,
-        leading: IconButton(onPressed: () { Navigator.of(context).pop(); }, icon: Icon(Icons.arrow_back)),
-      ),
-      body: Padding(
+    final vm = Provider.of<WorkoutViewModel>(context);
+
+      return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Stack(
           children: [
@@ -36,8 +53,43 @@ class NewWorkoutScreen extends StatelessWidget{
                     ],
                   ),
                   SizedBox(height: ScreenSize.height * 0.05,),
-                  Backgroundbutton(text: 'ADD EXERCISE', width: double.infinity, style: AppTStyles.emphasizedMedium,),
 
+                  Consumer<WorkoutViewModel>(
+                    builder: (context, value, child) {
+                      return ListView.builder(
+                        itemCount: vm.workout.exercises.length,
+                        primary: false,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index){
+                          return ExerciseContainer(exercise: vm.workout.exercises[index]);
+                        },
+                      );
+                    },
+                  ),
+
+                  Container(
+                    width: double.infinity,
+                    height: ScreenSize.height * 0.1,
+                    child: FloatingActionButton(
+                      elevation: 0,
+                      backgroundColor: AppThemes.background,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero,),
+                      onPressed: () async {
+                        final result = await showDialog<String>(
+                          context: context,
+                          builder: (context){
+                            return AlertDialogBox();
+                          }
+                        );
+
+                        if(result != null){
+                          vm.addNewExercise(result);
+                          print(vm.workout.exercises.length);
+                        }
+                      },
+                      child: Text('ADD EXERCISE', style: AppTStyles.emphasizedMedium,),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -57,7 +109,6 @@ class NewWorkoutScreen extends StatelessWidget{
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../design/design.dart';
-import '../models/workout_model.dart';
-import '../models//exercise_model.dart';
-
+import '../models/training_model.dart';
 
 class TemplateContainer extends StatelessWidget{
 

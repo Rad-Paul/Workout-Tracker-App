@@ -1,5 +1,5 @@
 import 'package:new_workout_tracker_app/providers/workoutProvider.dart';
-import '../../models/workout_model.dart';
+import '../../models/training_model.dart';
 
 class ExerciseViewModel {
   WorkoutProvider workoutProvider = WorkoutProvider();
