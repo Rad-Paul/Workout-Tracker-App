@@ -1,36 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:new_workout_tracker_app/screens/exercise/exercise_view_model.dart';
 import 'package:new_workout_tracker_app/screens/new_workout/workout_view_model.dart';
 import 'package:new_workout_tracker_app/widgets/alertDialogBox.dart';
-import 'package:new_workout_tracker_app/widgets/backgroundButton.dart';
 import 'package:new_workout_tracker_app/widgets/commonEmphasizedButton.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/exerciseContainer.dart';
 import '../../design/design.dart';
 
-class NewWorkoutScreen extends StatelessWidget{
-
+class InspectWorkoutViewModel extends StatefulWidget{
+  InspectWorkoutViewModel({super.key});
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => WorkoutViewModel(),
-      child: Scaffold(
-        backgroundColor: AppThemes.background,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: AppThemes.background,
-          foregroundColor: AppThemes.basicText,
-          leading: IconButton(onPressed: () { Navigator.of(context).pop(); }, icon: Icon(Icons.arrow_back)),
-        ),
-        body: NewWorkoutScreenBody(),
-      ),
-    );
-  }
+  State<InspectWorkoutViewModel> createState() => _InspectWorkoutViewModelState();
 }
 
-
-class NewWorkoutScreenBody extends StatelessWidget{
-
+class _InspectWorkoutViewModelState extends State<InspectWorkoutViewModel> {
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<WorkoutViewModel>(context);
@@ -62,16 +44,17 @@ class NewWorkoutScreenBody extends StatelessWidget{
                       IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, color: AppThemes.emphasized,))
                     ],
                   ),
+                  
                   SizedBox(height: ScreenSize.height * 0.05,),
 
                   Consumer<WorkoutViewModel>(
                     builder: (context, value, child) {
                       return ListView.builder(
-                        itemCount: vm.workout.exercises.length,
+                        itemCount: vm.workout!.exercises.length,
                         primary: false,
                         shrinkWrap: true,
                         itemBuilder: (context, index){
-                          return ExerciseContainer(exercise: vm.workout.exercises[index]);
+                          return ExerciseContainer(exercise: vm.workout!.exercises[index]);
                         },
                       );
                     },
@@ -95,7 +78,6 @@ class NewWorkoutScreenBody extends StatelessWidget{
 
                         if(result != null){
                           vm.addNewExercise(result);
-                          print(vm.workout.exercises.length);
                         }
                       },
                       child: Text('ADD EXERCISE', style: AppTStyles.emphasizedMedium,),
@@ -107,20 +89,23 @@ class NewWorkoutScreenBody extends StatelessWidget{
                 ],
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                color: AppThemes.background,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CommonEmphasizedButton(text:'CLEAR', onPress: vm.clearWorkout),
-                    SizedBox(width: ScreenSize.width * 0.1,),
-                    CommonEmphasizedButton(text:'SAVE', onPress: (){
-                      vm.saveWorkout();
-                      Navigator.of(context).pop();
-                    },),
-                  ],
+            Visibility(
+              visible: vm.editing,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  color: AppThemes.background,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CommonEmphasizedButton(text:'CLEAR', onPress: vm.clearWorkout),
+                      SizedBox(width: ScreenSize.width * 0.1,),
+                      CommonEmphasizedButton(text:'SAVE', onPress: (){
+                        vm.saveWorkout();
+                        Navigator.of(context).pop();
+                      },),
+                    ],
+                  ),
                 ),
               ),
             )

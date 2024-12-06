@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:new_workout_tracker_app/design/design.dart';
-import 'package:new_workout_tracker_app/screens/new_workout/workout_view_model.dart';
 import 'package:new_workout_tracker_app/widgets/backgroundButton.dart';
 import 'package:new_workout_tracker_app/widgets/commonInput.dart';
 
 class AlertDialogBox extends StatelessWidget{
+
+  AlertDialogBox({super.key});
 
   TextEditingController controller = TextEditingController();
 

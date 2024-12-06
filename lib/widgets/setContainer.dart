@@ -3,8 +3,6 @@ import 'package:new_workout_tracker_app/screens/new_workout/workout_view_model.d
 import 'package:new_workout_tracker_app/widgets/commonInput.dart';
 import 'package:provider/provider.dart';
 import '../design/design.dart';
-import '../design/design.dart';
-import '../models/training_model.dart';
 
 class SetContainer extends StatelessWidget{
   String index;

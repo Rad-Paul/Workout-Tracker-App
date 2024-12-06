@@ -32,6 +32,7 @@ class CommonInput extends StatelessWidget{
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            textAlign: TextAlign.center,
             controller: textController,
             style: style,
             decoration: InputDecoration(

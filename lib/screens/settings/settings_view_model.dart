@@ -16,9 +16,7 @@ class SettingsViewModel {
   String get age => userProvider.user.age ?? '';
 
   void updateInfo(){
-    print('UPDATE!');
     userProvider.updateUser(firstNC.text, lastNC.text, ageC.text, emailC.text);
-    print(firstNC.text);
     firstNC.clear(); lastNC.clear(); ageC.clear(); emailC.clear();
   }
 }

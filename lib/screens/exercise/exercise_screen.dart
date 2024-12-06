@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_workout_tracker_app/screens/exercise/exercise_view_model.dart';
 import 'package:new_workout_tracker_app/widgets/templateContainer.dart';
 import '../../models/training_model.dart';
-import '../new_workout/new_workout_screen.dart';
+import '../new_workout/new_blank_workout_screen.dart';
 import 'package:new_workout_tracker_app/design/design.dart';
 
 class ExerciseScreen  extends StatefulWidget{
@@ -37,7 +37,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
               IconButton(
                 onPressed: (){
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => NewWorkoutScreen())
+                    MaterialPageRoute(builder: (BuildContext context) => NewBlankWorkoutScreen())
                   );
                 }, 
                 icon: Icon(Icons.add, color: AppThemes.basicText, size: 28,)

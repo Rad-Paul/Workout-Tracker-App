@@ -18,6 +18,14 @@ class WorkoutProvider {
 
   static List<Workout> sampleWorkouts = [
     Workout(
+      name: 'Test', 
+      exercises:[
+        Exercise(name: 'Squat', sets:[Set(weight: '85', reps: '12',), Set(weight: '15', reps: '10',), Set(weight: '44', reps: '8',),]),
+        Exercise(name: 'Leg Press', sets:[Set(weight: '25', reps: '12',), Set(weight: '20', reps: '10',), Set(weight: '43', reps: '8',),]),
+        Exercise(name: 'Lunge', sets:[Set(weight: '20', reps: '12',), Set(weight: '69', reps: '10',), Set(weight: '56', reps: '8',),]),
+      ]
+    ),
+    Workout(
       name: 'Legs', 
       exercises:[
         Exercise(name: 'Squat', sets:[Set(weight: '', reps: '12',), Set(weight: '', reps: '10',), Set(weight: '', reps: '8',),]),
