@@ -3,7 +3,7 @@ import 'package:new_workout_tracker_app/models/training_model.dart';
 import '../../design/design.dart';
 import 'package:provider/provider.dart';
 import '../new_workout/workout_view_model.dart';
-import '../../req/inspect_workout_view_model.dart';
+import '../../req/workout_editor.dart';
 
 class StartWorkoutScreen extends StatelessWidget{
   Workout workout;

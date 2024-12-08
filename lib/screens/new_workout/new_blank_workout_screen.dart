@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_workout_tracker_app/screens/new_workout/workout_view_model.dart';
 import 'package:provider/provider.dart';
 import '../../design/design.dart';
-import '../../req/inspect_workout_view_model.dart';
+import '../../req/workout_editor.dart';
 
 class NewBlankWorkoutScreen extends StatelessWidget{
 
