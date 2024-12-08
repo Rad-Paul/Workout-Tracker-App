@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:new_workout_tracker_app/design/design.dart';
-import 'package:new_workout_tracker_app/providers/userProvider.dart';
 import 'package:new_workout_tracker_app/screens/exercise/exercise_screen.dart';
 import 'package:new_workout_tracker_app/screens/history/history_screen.dart';
 import 'package:new_workout_tracker_app/screens/home/home_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
@@ -21,6 +20,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('ro', ''),
       home: AppBase(),
     );
   }

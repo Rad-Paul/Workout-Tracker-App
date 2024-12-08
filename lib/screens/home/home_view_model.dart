@@ -8,5 +8,5 @@ class HomeViewModel {
   String get email => userProvider.user.email ?? '';
   String get age => userProvider.user.age ?? '';
 
-  String get greetUser => 'Hello ${userProvider.user.firstName} ${userProvider.user.lastName}!';
+  String get userFullName => '${firstName} ${lastName}';
 }
