@@ -6,13 +6,13 @@ import 'package:provider/provider.dart';
 import '../../widgets/exerciseContainer.dart';
 import '../../design/design.dart';
 
-class InspectWorkoutViewModel extends StatefulWidget{
-  InspectWorkoutViewModel({super.key});
+class WorkoutEditor extends StatefulWidget{
+  WorkoutEditor({super.key});
   @override
-  State<InspectWorkoutViewModel> createState() => _InspectWorkoutViewModelState();
+  State<WorkoutEditor> createState() => _WorkoutEditorState();
 }
 
-class _InspectWorkoutViewModelState extends State<InspectWorkoutViewModel> {
+class _WorkoutEditorState extends State<WorkoutEditor> {
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<WorkoutViewModel>(context);

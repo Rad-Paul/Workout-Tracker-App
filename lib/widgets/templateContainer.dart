@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_workout_tracker_app/screens/start_workout/start_workout_screen.dart';
 import '../design/design.dart';
 import '../models/training_model.dart';
-import '../vms/inspect_workout_view_model.dart';
+import '../req/inspect_workout_view_model.dart';
 
 class TemplateContainer extends StatefulWidget{
 
